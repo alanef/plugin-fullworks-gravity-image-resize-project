@@ -50,6 +50,13 @@ class CLI {
 		\WP_CLI::log( sprintf( 'Oversized (kept):   %6d   %s', count( $oversized ), size_format( Scanner::total_bytes( $oversized ) ) ) );
 		\WP_CLI::log( '' );
 		\WP_CLI::log( 'Orphans are files no entry or draft references. Oversized counts only files that ARE referenced.' );
+
+		$health = Scanner::reference_health();
+		\WP_CLI::log( '' );
+		\WP_CLI::log( sprintf( 'Entries: %d   file references resolved: %d', $health['entries'], $health['referenced'] ) );
+		if ( ! $health['sane'] ) {
+			\WP_CLI::warning( 'This site has entries but NO file reference resolved. Orphan detection is unreliable here -- treat the orphan count as meaningless and do not delete.' );
+		}
 	}
 
 	/**

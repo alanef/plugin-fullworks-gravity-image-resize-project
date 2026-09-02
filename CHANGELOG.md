@@ -28,6 +28,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   entry points at yet, and treating those as orphans would delete a customer's
   upload mid-form. Deletion needs both `--delete` and `--confirm`.
 
+### Safety
+
+- **Orphan detection is sanity-checked before anything acts on it.** If a site
+  has entries but not one file reference resolves, that is far more likely to be
+  a detection failure than a site where every single file is genuinely
+  unreferenced — and the two are indistinguishable from the outside. `orphans
+  --delete` refuses outright in that case, and `scan` says so.
+
+  This is not hypothetical. Tested against a real 3.8GB site, the first version
+  resolved **zero** references and offered all 763 customer uploads for deletion.
+
 ### Notes
 
 - Post Image fields are deliberately untouched: those do create attachments, so

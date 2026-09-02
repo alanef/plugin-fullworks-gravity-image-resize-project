@@ -116,6 +116,38 @@ class ScannerTest extends WP_UnitTestCase {
 	}
 
 	/**
+	 * The guard that stops a detection failure becoming a mass deletion: entries
+	 * present but nothing resolved must report as not sane.
+	 */
+	public function test_reference_health_flags_detection_failure() {
+		global $wpdb;
+		$this->make_upload();
+
+		$table = $wpdb->prefix . 'gf_entry';
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+		$wpdb->query( "CREATE TABLE IF NOT EXISTS `{$table}` (id BIGINT AUTO_INCREMENT PRIMARY KEY, form_id BIGINT)" );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
+		$wpdb->insert( $table, array( 'form_id' => 1 ) );
+
+		$health = Scanner::reference_health();
+		$this->assertGreaterThan( 0, $health['entries'] );
+		$this->assertSame( 0, $health['referenced'] );
+		$this->assertFalse( $health['sane'], 'Entries with no resolved references must be flagged as unsafe.' );
+
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching,WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+		$wpdb->query( "DROP TABLE IF EXISTS `{$table}`" );
+	}
+
+	/**
+	 * A site with no entries at all is legitimately empty, not broken.
+	 */
+	public function test_reference_health_empty_site_is_sane() {
+		$health = Scanner::reference_health();
+		$this->assertSame( 0, $health['entries'] );
+		$this->assertTrue( $health['sane'] );
+	}
+
+	/**
 	 * Byte totals are reported for reporting purposes.
 	 */
 	public function test_total_bytes() {
