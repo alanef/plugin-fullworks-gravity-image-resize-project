@@ -1,0 +1,32 @@
+{
+    "plugins": [
+        "./fullworks-gravity-image-resize"
+    ],
+    "config": {
+        "WP_DEBUG": true,
+        "WP_DEBUG_LOG": true,
+        "WP_DEBUG_DISPLAY": true,
+        "SCRIPT_DEBUG": true
+    },
+    "phpVersion": "8.0",
+    "env": {
+        "tests": {
+            "plugins": [
+                "./fullworks-gravity-image-resize"
+            ],
+            "port": 8902,
+            "config": {
+                "WP_DEBUG": true,
+                "WP_DEBUG_LOG": true,
+                "WP_DEBUG_DISPLAY": false
+            },
+            "mappings": {
+                "wp-content/fwgir-project": "."
+            }
+        }
+    },
+    "mappings": {
+        "wp-content/fwgir-project": "."
+    },
+    "port": 8901
+}
