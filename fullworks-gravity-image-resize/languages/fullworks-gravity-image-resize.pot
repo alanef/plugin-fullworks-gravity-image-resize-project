@@ -1,0 +1,86 @@
+# Copyright (C) 2026 Alan Fuller
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Fullworks Gravity Image Resize 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/fullworks-gravity-image-resize\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-02T09:10:59+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.10.0\n"
+"X-Domain: fullworks-gravity-image-resize\n"
+
+#. Plugin Name of the plugin
+#: fullworks-gravity-image-resize.php
+msgid "Fullworks Gravity Image Resize"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: fullworks-gravity-image-resize.php
+msgid "https://github.com/alanef/plugin-fullworks-gravity-image-resize-project"
+msgstr ""
+
+#. Description of the plugin
+#: fullworks-gravity-image-resize.php
+msgid "Downscales images uploaded through Gravity Forms file-upload fields, which never pass through the WordPress media pipeline and so are missed by every media-library optimiser. Includes WP-CLI tools for the existing backlog."
+msgstr ""
+
+#. Author of the plugin
+#: fullworks-gravity-image-resize.php
+msgid "Alan Fuller"
+msgstr ""
+
+#. Author URI of the plugin
+#: fullworks-gravity-image-resize.php
+msgid "https://fullworks.net"
+msgstr ""
+
+#: includes/class-settings.php:112
+#: includes/class-settings.php:113
+#: includes/class-settings.php:149
+msgid "Gravity Image Resize"
+msgstr ""
+
+#: includes/class-settings.php:151
+msgid "Gravity Forms stores file-upload fields exactly as they arrive: a modern phone photo can be 20MB or more. Media-library optimisers never see these files, because Gravity Forms writes them directly rather than through the WordPress upload pipeline."
+msgstr ""
+
+#: includes/class-settings.php:158
+msgid "Maximum dimension"
+msgstr ""
+
+#: includes/class-settings.php:165
+msgid "pixels"
+msgstr ""
+
+#: includes/class-settings.php:167
+msgid "Images with a longer edge than this are scaled down to fit, keeping their aspect ratio. Nothing is cropped."
+msgstr ""
+
+#: includes/class-settings.php:172
+msgid "Resize on upload"
+msgstr ""
+
+#: includes/class-settings.php:177
+msgid "Resize images as forms are submitted"
+msgstr ""
+
+#: includes/class-settings.php:186
+msgid "Existing files"
+msgstr ""
+
+#: includes/class-settings.php:188
+msgid "Files already uploaded are handled from WP-CLI, so that every destructive step is deliberate and can be previewed first:"
+msgstr ""
+
+#: includes/class-settings.php:191
+msgid "# preview"
+msgstr ""
+
+#: includes/class-settings.php:196
+msgid "Both resizing and deleting are irreversible. Back up the gravity_forms uploads directory yourself before running either — this plugin does not do it for you."
+msgstr ""

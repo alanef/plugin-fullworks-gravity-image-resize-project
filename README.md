@@ -54,6 +54,26 @@ checked on purpose: a part-completed submission has files on disk that no entry
 points at yet, and treating those as orphans would delete a customer's upload
 mid-form.
 
+### Run as the web user, never `--allow-root`
+
+`resize --execute` writes files. `WP_Image_Editor::save()` writes a temp file and
+renames it, so running as root leaves **root-owned files in `wp-content/uploads`**
+that php-fpm (running as `www-data`) cannot manage — which surfaces as 502s, on
+customers' uploaded photos.
+
+From the host:
+
+```bash
+docker exec -u www-data <container> wp fwgir scan --path=/var/www/html
+```
+
+Already inside the container as root? `www-data` usually has `nologin` as its
+shell, so plain `su` refuses. Override it:
+
+```bash
+su -s /bin/sh www-data -c "wp fwgir resize --path=/var/www/html"
+```
+
 ## Development
 
 ```bash

@@ -35,6 +35,8 @@ Handled from WP-CLI, so every destructive step is deliberate and previewable:
 `wp fwgir orphans`
 `wp fwgir orphans --delete --confirm`
 
+Run these as the web-server user, not root: `resize --execute` writes files, and root-owned files under `wp-content/uploads` cannot be managed by php-fpm afterwards. If `su www-data` reports the account is unavailable, its shell is `nologin` — use `su -s /bin/sh www-data -c "wp fwgir ..."`.
+
 **Resizing and deleting are irreversible.** Back up your `uploads/gravity_forms` directory first; the plugin does not do it for you.
 
 An orphan is a file no entry and no saved draft references. Drafts are checked deliberately: a part-completed submission has files on disk that no entry points at yet, and deleting those would take a customer's upload mid-form.
