@@ -5,6 +5,8 @@
  * @package FullworksGravityImageResize
  */
 
+require_once dirname( __DIR__ ) . '/helpers/class-image-factory.php';
+
 use FullworksGravityImageResize\Resizer;
 
 /**

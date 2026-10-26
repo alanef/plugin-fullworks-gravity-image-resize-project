@@ -1,32 +1,32 @@
 {
-    "plugins": [
-        "./fullworks-gravity-image-resize"
-    ],
-    "config": {
+  "phpVersion": "8.4",
+  "plugins": [
+    "./fullworks-gravity-image-resize"
+  ],
+  "port": 8901,
+  "testsPort": 8902,
+  "config": {
+    "WP_DEBUG": true,
+    "WP_DEBUG_LOG": true,
+    "WP_DEBUG_DISPLAY": true,
+    "SCRIPT_DEBUG": true
+  },
+  "mappings": {
+    "wp-content/fwgir-project": ".",
+    "tests": "./tests",
+    "vendor": "./vendor",
+    "phpunit.xml.dist": "./phpunit.xml.dist"
+  },
+  "env": {
+    "tests": {
+      "config": {
         "WP_DEBUG": true,
         "WP_DEBUG_LOG": true,
-        "WP_DEBUG_DISPLAY": true,
-        "SCRIPT_DEBUG": true
-    },
-    "phpVersion": "8.0",
-    "env": {
-        "tests": {
-            "plugins": [
-                "./fullworks-gravity-image-resize"
-            ],
-            "port": 8902,
-            "config": {
-                "WP_DEBUG": true,
-                "WP_DEBUG_LOG": true,
-                "WP_DEBUG_DISPLAY": false
-            },
-            "mappings": {
-                "wp-content/fwgir-project": "."
-            }
-        }
-    },
-    "mappings": {
+        "WP_DEBUG_DISPLAY": false
+      },
+      "mappings": {
         "wp-content/fwgir-project": "."
-    },
-    "port": 8901
+      }
+    }
+  }
 }
