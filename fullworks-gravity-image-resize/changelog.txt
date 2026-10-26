@@ -1,5 +1,6 @@
 = Unreleased =
 * Added: The plugin now updates itself from its GitHub releases through the normal WordPress update screens, so after one manual install no further uploads are needed.
+* Changed: Tested up to WordPress 7.1.
 
 = 1.0.0 =
 * Added: Resizing of Gravity Forms upload-field images on submission. Gravity Forms writes these files with move_uploaded_file() directly into uploads/gravity_forms/, so they never pass through wp_handle_upload(), never become attachments and never meet the image-size pipeline. That is why no media-library optimiser (Imsanity, Smush, ShortPixel, EWWW) can see them however it is configured, and why a 22MB phone photo is stored exactly as it arrived. Observed on a live site: 950 files averaging 4MB, 3.8GB in total, over half of the whole site.
