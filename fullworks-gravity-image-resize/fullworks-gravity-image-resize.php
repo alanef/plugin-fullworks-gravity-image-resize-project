@@ -3,7 +3,7 @@
  * Plugin Name:       Fullworks Gravity Image Resize
  * Plugin URI:        https://github.com/alanef/plugin-fullworks-gravity-image-resize-project
  * Description:       Downscales images uploaded through Gravity Forms file-upload fields, which never pass through the WordPress media pipeline and so are missed by every media-library optimiser. Includes WP-CLI tools for the existing backlog.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Requires at least: 5.8
  * Requires PHP:      7.4
  * Update URI:        https://github.com/alanef/plugin-fullworks-gravity-image-resize-project
@@ -27,7 +27,7 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 	require_once __DIR__ . '/vendor/autoload.php';
 }
 
-define( 'FWGIR_VERSION', '1.0.0' );
+define( 'FWGIR_VERSION', '1.1.0' );
 define( 'FWGIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'FWGIR_URL', plugin_dir_url( __FILE__ ) );
 define( 'FWGIR_BASENAME', plugin_basename( __FILE__ ) );

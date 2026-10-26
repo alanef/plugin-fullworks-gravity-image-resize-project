@@ -1,4 +1,4 @@
-= Unreleased =
+= 1.1.0 =
 * Added: The plugin now updates itself from its GitHub releases through the normal WordPress update screens, so after one manual install no further uploads are needed.
 * Changed: Tested up to WordPress 7.1.
 
